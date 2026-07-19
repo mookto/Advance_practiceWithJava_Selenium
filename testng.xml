@@ -1,0 +1,16 @@
+<suite name="Suite" parallel="tests" thread-count="3">
+    //   <test name="Parallel-1">
+    //     <classes>
+    //       <class name="tests.Topic3ParallelRetryTest">
+    //         <methods><include name="test3A1_ParallelHomepage"/></methods>
+    //       </class>
+    //     </classes>
+    //   </test>
+    //   <test name="Parallel-2">
+    //     <classes>
+    //       <class name="tests.Topic3ParallelRetryTest">
+    //         <methods><include name="test3A2_ParallelDocs"/></methods>
+    //       </class>
+    //     </classes>
+    //   </test>
+    // </suite>

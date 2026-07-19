@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║   ALL TOPICS — Full Test Suite                          ║
+    ║   একটার পর একটা sequence এ চলবে                        ║
+    ║                                                         ║
+    ║   Run করো:                                             ║
+    ║   IntelliJ → Run → Edit Configurations                 ║
+    ║   → (+) TestNG → Suite → এই XML select করো            ║
+    ╚══════════════════════════════════════════════════════════╝
+-->
+
+<suite name="All-Topics-Suite"
+       verbose="2"
+       parallel="none">
+
+    <!-- ══════════════════════════════════════════════
+         TOPIC 1 — Mock / Network Interception
+    ══════════════════════════════════════════════ -->
+    <test name="Topic1: 1A Mock API Response">
+        <classes>
+            <class name="MockNetworkTest">
+                <methods><include name="test1A_MockApiResponse"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic1: 1B Modify Real Response">
+        <classes>
+            <class name="MockNetworkTest">
+                <methods><include name="test1B_ModifyRealResponse"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic1: 1C Slow Network">
+        <classes>
+            <class name="MockNetworkTest">
+                <methods><include name="test1C_SlowNetwork"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic1: 1D 500 Error Injection">
+        <classes>
+            <class name="MockNetworkTest">
+                <methods><include name="test1D_500ErrorInjection"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic1: 1E Image Block">
+        <classes>
+            <class name="MockNetworkTest">
+                <methods><include name="test1E_RequestBlock"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════
+         TOPIC 1 — Autocomplete
+    ══════════════════════════════════════════════ -->
+    <test name="Topic1-Auto: 1A Basic Autocomplete">
+        <classes>
+            <class name="Topic1AutoCompleteTest">
+                <methods><include name="test1A_BasicAutocomplete"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic1-Auto: 1B Keyboard Navigation">
+        <classes>
+            <class name="Topic1AutoCompleteTest">
+                <methods><include name="test1B_KeyboardNavigation"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic1-Auto: 1C Address Autocomplete">
+        <classes>
+            <class name="Topic1AutoCompleteTest">
+                <methods><include name="test1C_AddressAutocomplete"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic1-Auto: 1D Select2 Dropdown">
+        <classes>
+            <class name="Topic1AutoCompleteTest">
+                <methods><include name="test1D_Select2Dropdown"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════
+         TOPIC 2 — Auth Handling
+    ══════════════════════════════════════════════ -->
+    <test name="Topic2: 2A Cookie Injection">
+        <classes>
+            <class name="AuthHandling_VisualDebug">
+                <methods><include name="test2A_CookieInjection"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic2: 2B localStorage Injection">
+        <classes>
+            <class name="AuthHandling_VisualDebug">
+                <methods><include name="test2B_LocalStorageInjection"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic2: 2C-1 Login and Save State">
+        <classes>
+            <class name="AuthHandling_VisualDebug">
+                <methods><include name="test2C_Step1_LoginAndSave"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic2: 2C-2 Reuse Auth State">
+        <classes>
+            <class name="AuthHandling_VisualDebug">
+                <methods><include name="test2C_Step2_ReuseState"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic2: 2D Multiple User Roles">
+        <classes>
+            <class name="AuthHandling_VisualDebug">
+                <methods><include name="test2D_MultipleUserRoles"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════
+         TOPIC 2 — Visual Regression
+    ══════════════════════════════════════════════ -->
+    <test name="Topic2-VR: 2A Full Page Screenshot">
+        <classes>
+            <class name="Topic2VisualRegressionTest">
+                <methods><include name="test2A_FullPageScreenshot"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic2-VR: 2B Component Screenshot">
+        <classes>
+            <class name="Topic2VisualRegressionTest">
+                <methods><include name="test2B_ComponentScreenshot"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic2-VR: 2C Before After Compare">
+        <classes>
+            <class name="Topic2VisualRegressionTest">
+                <methods><include name="test2C_BeforeAfterCompare"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic2-VR: 2D Responsive Screenshots">
+        <classes>
+            <class name="Topic2VisualRegressionTest">
+                <methods><include name="test2D_ResponsiveScreenshots"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════
+         TOPIC 3 — Parallel + Retry
+         Note: 3A, 3D গুলো parallel এ চলে — আলাদা রাখা হয়েছে
+    ══════════════════════════════════════════════ -->
+    <test name="Topic3: 3A-1 Parallel Homepage">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3A1_ParallelHomepage"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic3: 3A-2 Parallel Docs">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3A2_ParallelDocs"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic3: 3A-3 Parallel API">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3A3_ParallelAPI"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic3: 3B Flaky Retry">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3B_FlakyTestWithRetry"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic3: 3C Test Info">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3C_TestInfo"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic3: 3D User A Browse Desktops">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3D_UserA_BrowseDesktops"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic3: 3D User B Search Laptop">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3D_UserB_SearchLaptop"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic3: 3D User C Visit Homepage">
+        <classes>
+            <class name="Topic3ParallelRetryTest">
+                <methods><include name="test3D_UserC_VisitHomepage"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- ══════════════════════════════════════════════
+         TOPIC 4 — Multi Tab / Multi Context
+    ══════════════════════════════════════════════ -->
+    <test name="Topic4: 4A New Tab Handling">
+        <classes>
+            <class name="Topic4MultiTabContextTest">
+                <methods><include name="test4A_NewTabHandling"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic4: 4B Multiple Tabs">
+        <classes>
+            <class name="Topic4MultiTabContextTest">
+                <methods><include name="test4B_MultipleTabsManagement"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic4: 4C Multi Context Users">
+        <classes>
+            <class name="Topic4MultiTabContextTest">
+                <methods><include name="test4C_MultiContextUsers"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic4: 4D Realtime Chat">
+        <classes>
+            <class name="Topic4MultiTabContextTest">
+                <methods><include name="test4D_RealtimeChat"/></methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Topic4: 4E Buyer and Seller">
+        <classes>
+            <class name="Topic4MultiTabContextTest">
+                <methods><include name="test4E_BuyerSeller"/></methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
